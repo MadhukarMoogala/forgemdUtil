@@ -4,6 +4,7 @@ using Autodesk.Forge.Model;
 using forgemdTest;
 using System.CommandLine;
 using System.CommandLine.Invocation;
+using System.Diagnostics;
 
 namespace ForgeMdTest
 {
@@ -452,6 +453,8 @@ namespace ForgeMdTest
 
         public static async Task RunWorkFlow()
         {
+           
+            Console.WriteLine(nameof(RunWorkFlow));
             try
             {
                 string? filePath = ConfigOptions.InputPath;
@@ -462,6 +465,7 @@ namespace ForgeMdTest
 
                 }
                 string? serverEndpoint = ConfigOptions.ServerEndpoint;
+                Console.WriteLine(serverEndpoint);
                 if (serverEndpoint == null)
                 {
 
@@ -469,6 +473,7 @@ namespace ForgeMdTest
 
                 }
                 string? storageRegion = ConfigOptions.StorageRegion;
+                Console.WriteLine(storageRegion);
                 if (storageRegion == null)
                 {
 
@@ -476,19 +481,27 @@ namespace ForgeMdTest
 
                 }
                 string? targetRegion = ConfigOptions.DerivativeRegion;
+                Console.WriteLine(targetRegion);
                 if (targetRegion == null)
                 {
 
                     throw new ArgumentNullException($"{nameof(targetRegion)} is null");
 
                 }
-                FileInfo file = new(filePath);
+
+                
+                FileInfo file = new FileInfo(filePath);
                 ObjectKey = Path.GetFileName(file.FullName);
+                Console.WriteLine($"{BucketKey}/{ObjectKey}");
+
+
                 string? urn = BuildURN(BucketKey, ObjectKey);
+                Console.WriteLine(urn);
                 Region? endpoint = Enum.Parse<Region>(serverEndpoint, true);
                 Region storage = Enum.Parse<Region>(storageRegion, true);
                 JobPayloadDestination.RegionEnum target = Enum.Parse<JobPayloadDestination.RegionEnum>(targetRegion, true);
-
+                Console.WriteLine(filePath);
+                Console.WriteLine(file.FullName);
                 urn = await TryWorkflow(
                    file,
                    endpoint == Region.US ? USDerivativesAPI : EMEADerivativesAPI,
@@ -594,7 +607,8 @@ namespace ForgeMdTest
 
         private static async Task<int> Main(string[] args)
         {
-            Console.WriteLine("--------------Welcome to Forge MD Test Util-----------------------");
+
+            Console.WriteLine(Figgle.FiggleFonts.Standard.Render("FORGE"));            
             var root = new CommandBuilder().Build();
             return await root.InvokeAsync(args);            
         }
