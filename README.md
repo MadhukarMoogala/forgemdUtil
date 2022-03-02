@@ -34,7 +34,7 @@ devenv forgemdTest.sln
 dotnet build
 set FORGE_CLIENT_ID=[YOUR_CLIENT_ID]
 set FORGE_CLIENT_SECRET=[YOUR_CLIENT_SECRET]
-SET FORGE_API_PATH="https://developer.api.autodesk.com"
+SET FORGE_API_PATH=https://developer.api.autodesk.com
 dotnet run run "files\Hall.ifc"
 ```
 ### Debugging Locally
