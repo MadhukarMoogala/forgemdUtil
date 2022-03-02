@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "forgemdTest": {
+      "commandName": "Project",
+      "commandLineArgs": "",
+      "environmentVariables": {
+        "FORGE_API_PATH": "",
+        "FORGE_CLIENT_ID": "",
+        "FORGE_CLIENT_SECRET": ""
+      }
+    }
+  }
+}
