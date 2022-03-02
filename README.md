@@ -1,6 +1,3 @@
----
-typora-root-url: ./
----
 
 # Forge MD Utility
 
