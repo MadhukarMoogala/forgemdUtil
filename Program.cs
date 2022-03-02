@@ -464,37 +464,30 @@ namespace ForgeMdTest
                     throw new ArgumentNullException($"{nameof(filePath)} is null");
 
                 }
-                string? serverEndpoint = ConfigOptions.ServerEndpoint;
-                Console.WriteLine(serverEndpoint);
+                string? serverEndpoint = ConfigOptions.ServerEndpoint;                
                 if (serverEndpoint == null)
                 {
 
                     throw new ArgumentNullException($"{nameof(serverEndpoint)} is null");
 
                 }
-                string? storageRegion = ConfigOptions.StorageRegion;
-                Console.WriteLine(storageRegion);
+                string? storageRegion = ConfigOptions.StorageRegion;                
                 if (storageRegion == null)
                 {
 
                     throw new ArgumentNullException($"{nameof(storageRegion)} is null");
 
                 }
-                string? targetRegion = ConfigOptions.DerivativeRegion;
-                Console.WriteLine(targetRegion);
+                string? targetRegion = ConfigOptions.DerivativeRegion;                
                 if (targetRegion == null)
                 {
 
                     throw new ArgumentNullException($"{nameof(targetRegion)} is null");
 
-                }
-
-                
+                }               
                 FileInfo file = new FileInfo(filePath);
                 ObjectKey = Path.GetFileName(file.FullName);
                 Console.WriteLine($"{BucketKey}/{ObjectKey}");
-
-
                 string? urn = BuildURN(BucketKey, ObjectKey);
                 Console.WriteLine(urn);
                 Region? endpoint = Enum.Parse<Region>(serverEndpoint, true);
@@ -509,9 +502,9 @@ namespace ForgeMdTest
                    target
 
                );
-                Console.WriteLine($"Note urn :{urn} if you want to delete manifest with `forgemd clean` command");
+              Console.WriteLine($"Note urn :{urn} if you want to delete manifest with `forgemd clean --urn` command");
             }
-            catch (Exception) { }
+            catch (Exception) { throw; }
         }
 
         private static async Task<string?> GenerateObjWorkFlow(string found, dynamic? response, string urn)
