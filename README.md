@@ -1,3 +1,7 @@
+---
+typora-root-url: ./
+---
+
 # Forge MD Utility
 
 ### Contents
@@ -11,6 +15,10 @@
 ## Description
 
 This code sample demonstrates the simple automated usage of translating source\seed file to SVF2 considering the Region of storage, derivates and server endpoint.
+
+### Thumbnail
+
+![Thumbnail](https://github.com/MadhukarMoogala/forgemdUtil/blob/master/thumbnail.JPG)
 
 ## Setup
 
