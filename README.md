@@ -42,6 +42,22 @@ set FORGE_CLIENT_SECRET=[YOUR_CLIENT_SECRET]
 SET FORGE_API_PATH=https://developer.api.autodesk.com
 dotnet run run "files\Hall.ifc"
 ```
+### To work with Visual Studio 2019
+
+- Under Options, Environment, Preview Features set Use previews of the .NET SDK to true, restart Visual Studio.
+- Restart, in a Visual Studio solution create a new Windows Form app.
+- To validate double click the project file in Solution Explorer and you should see
+
+```
+ <Project Sdk="Microsoft.NET.Sdk">    
+   <PropertyGroup>
+     <OutputType>WinExe</OutputType>
+     <TargetFramework>net6.0-windows</TargetFramework>
+     <Nullable>enable</Nullable>
+     <UseWindowsForms>true</UseWindowsForms>
+   </PropertyGroup>    
+ </Project>
+```
 ### Debugging Locally
 * **Visual Studio** (Windows):
  - Open the solution project forgemdTest.sln
