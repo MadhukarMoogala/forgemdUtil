@@ -20,7 +20,7 @@ This code sample demonstrates the simple automated usage of translating source\s
 ## Setup
 
 ### Prerequisites
-* [Visual Studio](https://code.visualstudio.com/): Either Community 2019+ (Windows) or Code (Windows, MacOS).
+* [Visual Studio](https://code.visualstudio.com/): Either Community 2022 (Windows) or Code (Windows, MacOS).
 * [dotNET 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 * Basic Knowledge of C#
 * Autodesk Forge Account: Learn how to create a Forge Account, activate subscription and create an app at this tutorial
@@ -45,7 +45,15 @@ dotnet run run "files\Hall.ifc"
 ### To work with Visual Studio 2019
 
 - Under Options, Environment, Preview Features set Use previews of the .NET SDK to true, restart Visual Studio.
-- Restart, in a Visual Studio solution create a new Windows Form app.
+- Restart, in a Visual Studio solution create a new console app.
+
+#### Using CLI ?
+
+```
+mkdir testnet6
+cd testnet6
+dotnet new console
+```
 - To validate double click the project file in Solution Explorer and you should see
 
 ```
